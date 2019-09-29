@@ -79,6 +79,8 @@
 
 (setq visible-bell 1)
 
+(setq linum-format "%d ")
+
 
 ;; Extensions
 
