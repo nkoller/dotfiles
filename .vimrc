@@ -7,7 +7,7 @@ set relativenumber
 highlight CursorLineNr ctermfg=Grey     guifg=Grey
 highlight LineNr       ctermfg=DarkGrey guifg=DarkGrey
 
-" Netrw appearance/behaviour
+" Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
 let g:netrw_browse_split = 4  " Open selection in previous window
 let g:netrw_liststyle    = 3  " Tree view by default
