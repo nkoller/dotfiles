@@ -81,6 +81,8 @@ let g:netrw_browse_split = 4  " Open selection in previous window
 let g:netrw_liststyle    = 3  " Tree view by default
 let g:netrw_winsize      = 25 " 25% width
 
+let g:rainbow_active = 1 " Turn on rainbow brackets
+
 
 " Tabs
 
