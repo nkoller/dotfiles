@@ -62,8 +62,8 @@ Plug 'junegunn/fzf'
 
 Plug 'junegunn/fzf.vim'
   let g:fzf_action = {
-    \ 'ctrl-h': 'split',
-    \ 'ctrl-v': 'vsplit',
+    \ 'ctrl-n': 'split',
+    \ 'ctrl-l': 'vsplit',
     \ 'ctrl-t': 'tab split' }
 
 Plug 'luochen1990/rainbow'
@@ -111,6 +111,7 @@ nmap <leader>` gt
 for i in range(1, 9)
   execute "nmap <leader>" . i . " " . i . "gt"
 endfor
+nmap <leader>0 10gt
 
 " Buffer movement
 nmap <silent> <leader><tab> :bn<cr>
@@ -131,7 +132,8 @@ nmap <leader>eh :abo vsp
 nmap <leader>ej :bel sp 
 nmap <leader>ek :abo sp 
 nmap <leader>el :bel vsp 
-nmap <leader>f :Files 
+nmap <leader>f :Files<cr>
+nmap <leader>F :Files 
 
 " Window/buffer saving and closing
 nmap <silent> <leader>s :w<cr>
@@ -148,7 +150,7 @@ nmap <silent> <leader>!x :qa!<cr>
 nmap <leader>a :Ack 
 nmap <leader>c :source $MYVIMRC<cr>
 nmap <silent> <leader>/ :BLines<cr>
-nmap <silent> <leader>~ :Taglist<cr>
+nmap <silent> <leader>~ :Tlist<cr>
 nmap <silent> <leader><leader> :terminal<cr>
 
 " Make Y behave like C and D
