@@ -54,7 +54,7 @@ Plug 'mileszs/ack.vim'
 
 Plug 'vim-airline/vim-airline'
   let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
   let g:airline_section_y = ''       " Disable file encoding section
   let g:airline_section_warning = '' " Disable warnings section
 
@@ -96,14 +96,14 @@ nmap <leader>: <c-w>x
 nmap <leader>T <c-w>T
 
 " Window sizing
-nmap <leader>- <c-w>-
-nmap <leader>= <c-w>+
-nmap <leader>[ <c-w><
-nmap <leader>] <c-w>>
-nmap <leader>_ 10<c-w>-
-nmap <leader>+ 10<c-w>+
-nmap <leader>{ 10<c-w><
-nmap <leader>} 10<c-w>>
+nmap <leader>- 10<c-w>-
+nmap <leader>= 10<c-w>+
+nmap <leader>[ 10<c-w><
+nmap <leader>] 10<c-w>>
+nmap <leader>_ <c-w>-
+nmap <leader>+ <c-w>+
+nmap <leader>{ <c-w><
+nmap <leader>} <c-w>>
 nmap <leader>\ <c-w>=
 
 " Tab movement
