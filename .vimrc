@@ -142,6 +142,7 @@ nmap <silent> <leader>w :q<cr>
 nmap <silent> <leader>W :bw<cr>
 nmap <silent> <leader>q :bp<bar>sp<bar>bn<bar>bw<cr>
 nmap <silent> <leader>x :qa<cr>
+nmap <silent> <leader>!w :q!<cr>
 nmap <silent> <leader>!W :bw!<cr>
 nmap <silent> <leader>!q :bp<bar>sp<bar>bn<bar>bw!<cr>
 nmap <silent> <leader>!x :qa!<cr>
