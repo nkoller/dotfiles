@@ -111,7 +111,7 @@ nmap <leader>` gt
 for i in range(1, 9)
   execute "nmap <leader>" . i . " " . i . "gt"
 endfor
-nmap <leader>0 10gt
+nmap <leader>0 :tabl<cr>
 
 " Buffer movement
 nmap <silent> <leader><tab> :bn<cr>
