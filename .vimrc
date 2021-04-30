@@ -10,8 +10,12 @@ set wildmenu wildmode=longest:full,full " Show a visual tab completion list
 
 " Line numbers
 set number relativenumber
-highlight CursorLineNr ctermfg=Grey     guifg=Grey
-highlight LineNr       ctermfg=DarkGrey guifg=DarkGrey
+hi CursorLineNr ctermfg=Grey     guifg=Grey
+hi LineNr       ctermfg=DarkGrey guifg=DarkGrey
+
+" Window split
+hi VertSplit    cterm=NONE
+hi VertSplit    ctermfg=Grey     guifg=Grey
 
 " Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
@@ -57,6 +61,9 @@ Plug 'vim-airline/vim-airline'
   let g:airline#extensions#tabline#formatter = 'unique_tail'
   let g:airline_section_y = ''       " Disable file encoding section
   let g:airline_section_warning = '' " Disable warnings section
+
+Plug 'vim-airline/vim-airline-themes'
+  let g:airline_theme = 'light'
 
 Plug 'junegunn/fzf'
 
