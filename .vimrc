@@ -1,6 +1,5 @@
 set nocompatible " For consistency when used as system-wide vimrc or with -u
 
-
 " --- Appearance ---
 
 syntax on    " Syntax highlighting
@@ -73,7 +72,7 @@ Plug 'junegunn/fzf.vim'
     \ 'ctrl-l': 'vsplit',
     \ 'ctrl-t': 'tab split' }
 
-Plug 'luochen1990/rainbow'
+Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 1
 
 Plug 'vim-scripts/taglist.vim'
