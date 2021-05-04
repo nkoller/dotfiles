@@ -30,7 +30,6 @@ set backspace=indent,eol,start " Usually automatic, must set for some systems
 set hidden                     " Disable warning when hiding modified buffers
 set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
 set splitbelow splitright      " Always place new window below / to the right
-set tags=$S/tags               " Temp (for my work repo)
 
 " Indentation
 set autoindent " When filetype is unknown, just copy indentation of prev line
