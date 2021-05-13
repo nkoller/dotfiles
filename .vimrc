@@ -3,7 +3,6 @@ set nocompatible " For consistency when used as system-wide vimrc or with -u
 " --- Appearance ---
 
 syntax on    " Syntax highlighting
-set hlsearch " Search result highlighting
 set showcmd  " Show partial commands as they're typed
 set wildmenu wildmode=longest:full,full " Show a visual tab completion list
 
@@ -16,9 +15,14 @@ hi LineNr       ctermfg=DarkGrey guifg=DarkGrey
 hi VertSplit    cterm=NONE
 hi VertSplit    ctermfg=Grey     guifg=Grey
 
+" Search result highlighting
+set hlsearch
+hi Search ctermbg=LightYellow guibg=LightYellow
+
 " Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
 let g:netrw_browse_split = 4  " Open selection in previous window
+let g:netrw_bufsettings  = 'noma nomod nu nobl nowrap ro' " Show line numbers
 let g:netrw_liststyle    = 3  " Tree view by default
 let g:netrw_winsize      = 25 " 25% width
 
@@ -157,7 +161,7 @@ nmap <leader>a :Ack
 nmap <leader>c :source $MYVIMRC<cr>
 nmap <silent> <leader>/ :BLines<cr>
 nmap <silent> <leader>~ :Tlist<cr>
-nmap <silent> <leader><leader> :terminal<cr>
+nmap <silent> <leader><leader> :Vexplore<cr>
 
 " Make Y behave like C and D
 map Y y$
