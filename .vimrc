@@ -24,6 +24,7 @@ let g:netrw_banner       = 0  " Remove banner
 let g:netrw_browse_split = 4  " Open selection in previous window
 let g:netrw_bufsettings  = 'noma nomod nu nobl nowrap ro' " Show line numbers
 let g:netrw_liststyle    = 3  " Tree view by default
+let g:netrw_list_hide    = '.*\.swp$'
 let g:netrw_winsize      = 25 " 25% width
 
 
@@ -36,9 +37,9 @@ set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
 set splitbelow splitright      " Always place new window below / to the right
 
 " Indentation
-set autoindent " When filetype is unknown, just copy indentation of prev line
-set expandtab  " Tab key inserts spaces
-set shiftwidth=4 softtabstop=4
+set autoindent " For unknown filetypes, just copy indentation from prev. line
+set expandtab  " Tab key inserts spaces by default
+set shiftwidth=4 tabstop=4 " Tabs appear 4 spaces long
 
 
 " --- Plugins ---
@@ -74,6 +75,8 @@ Plug 'junegunn/fzf.vim'
     \ 'ctrl-n': 'split',
     \ 'ctrl-l': 'vsplit',
     \ 'ctrl-t': 'tab split' }
+
+Plug 'fatih/vim-go'
 
 Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 1
