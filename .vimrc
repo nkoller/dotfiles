@@ -162,6 +162,7 @@ nmap <silent> <leader>!x :qa!<cr>
 " Misc shortcuts
 nmap <leader>a :Ack 
 nmap <leader>c :source $MYVIMRC<cr>
+nmap <silent> <leader>d :GoDef<cr>
 nmap <silent> <leader>/ :BLines<cr>
 nmap <silent> <leader>~ :Tlist<cr>
 nmap <silent> <leader><leader> :Vexplore<cr>
