@@ -41,6 +41,9 @@ set autoindent " For unknown filetypes, just copy indentation from prev. line
 set expandtab  " Tab key inserts spaces by default
 set shiftwidth=4 tabstop=4 " Tabs appear 4 spaces long
 
+" Markdown
+autocmd Filetype markdown setlocal textwidth=80 " Automatic line breaks at 80
+
 
 " --- Plugins ---
 
@@ -78,6 +81,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'fatih/vim-go'
 
+Plug 'mzlogin/vim-markdown-toc'
+
 Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 1
 
@@ -97,7 +102,7 @@ nmap <leader>j <c-w>j
 nmap <leader>k <c-w>k
 nmap <leader>l <c-w>l
 nmap <leader>p <c-w>p
-nmap <silent> <leader>i :Win<cr>
+nmap <silent> <leader>u :Win<cr>
 
 " Window placement
 nmap <leader>H <c-w>H
@@ -128,7 +133,7 @@ nmap <leader>0 :tabl<cr>
 " Buffer movement
 nmap <silent> <leader><tab> :bn<cr>
 nmap <leader>o <c-^>
-nmap <silent> <leader>u :Buf<cr>
+nmap <silent> <leader>i :Buf<cr>
 
 " Buffer creation (new)
 nmap <silent> <leader>nn :ene<cr>
