@@ -85,6 +85,9 @@ Plug 'frazrepo/vim-rainbow'
 
 Plug 'vim-scripts/taglist.vim'
 
+Plug 'lervag/vimtex'
+  let g:vimtex_view_method = 'skim'
+
 call plug#end()
 
 
