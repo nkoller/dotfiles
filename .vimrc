@@ -68,6 +68,9 @@ Plug 'vim-airline/vim-airline'
   let g:airline_section_y = ''       " Disable file encoding section
   let g:airline_section_warning = '' " Disable warnings section
 
+Plug 'vim-airline/vim-airline-themes'
+  let g:airline_theme = 'light'
+
 Plug 'junegunn/fzf'
 
 Plug 'junegunn/fzf.vim'
@@ -82,8 +85,6 @@ Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 1
-
-Plug 'vim-scripts/taglist.vim'
 
 Plug 'lervag/vimtex'
   let g:vimtex_view_method = 'skim'
