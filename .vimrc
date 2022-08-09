@@ -1,5 +1,6 @@
 set nocompatible " For consistency when used as system-wide vimrc or with -u
 
+
 " --- Appearance ---
 
 syntax on    " Syntax highlighting
@@ -178,3 +179,20 @@ map Y y$
 
 " Remove search highlights on screen redraw
 nnoremap <silent> <c-L> <c-L>:nohl<cr>
+
+
+" --- Filetype-specific mappings ---
+
+" Latex
+autocmd Filetype tex call SetLatexMappings()
+function SetLatexMappings()
+  inoremap ; \
+  inoremap [ {
+  inoremap { [
+
+  inoremap <c-a> \begin{align*}<cr>
+  inoremap <c-b> \begin{bmatrix}
+  inoremap <c-e> \begin{equation*}<cr>
+  inoremap <c-n> \begin{enumerate}<cr>\item 
+  inoremap <c-p> \left\{ \begin{array}{ll}<cr>
+endfunction
