@@ -1,3 +1,3 @@
 # dotfiles
 
-Snoop through my settings 🧑‍💻
+Check out my settings
