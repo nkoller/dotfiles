@@ -190,13 +190,13 @@ nnoremap <silent> <c-L> <c-L>:nohl<cr>
 " Latex
 autocmd Filetype tex call SetLatexMappings()
 function SetLatexMappings()
-  inoremap ; \
-  inoremap [ {
-  inoremap { [
+  imap ; \
+  imap [ {
+  imap { [
 
-  inoremap <c-a> \begin{align*}<cr>
-  inoremap <c-b> \begin{bmatrix}
-  inoremap <c-e> \begin{equation*}<cr>
-  inoremap <c-n> \begin{enumerate}<cr>\item 
-  inoremap <c-p> \left\{ \begin{array}{ll}<cr>
+  imap <c-a> \begin{align*}<cr>
+  imap <c-b> \begin{bmatrix}
+  imap <c-e> \begin{equation*}<cr>
+  imap <c-n> \begin{enumerate}<cr>\item 
+  imap <c-p> \left\{ \begin{array}{ll}<cr>
 endfunction
