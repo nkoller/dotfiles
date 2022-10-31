@@ -1,3 +1,3 @@
 # dotfiles
 
-Check out my settings
+Copy my settings.

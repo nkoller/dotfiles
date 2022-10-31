@@ -47,9 +47,20 @@ alias cds='cd ~/code'
 alias python='python3'
 alias pip='pip3'
 
+fined() {
+    ag -l --follow --hidden | grep "$1"
+}
+
 
 # fzf setup
 
 source /opt/homebrew/opt/fzf/shell/*.zsh # Necessary on Mac I think
 export FZF_DEFAULT_OPTS='-m --height 40% --min-height 3'
 export FZF_COMPLETION_TRIGGER="'"
+
+# Use ag to list files
+export FZF_DEFAULT_COMMAND='ag -l --follow --hidden --ignore ".git"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+_fzf_compgen_path() {
+  eval "$FZF_DEFAULT_COMMAND . $1"
+}
