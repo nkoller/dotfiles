@@ -25,7 +25,7 @@ Plug 'vim-airline/vim-airline'
   let g:airline_section_warning = '' " Disable warnings section
 
 Plug 'vim-airline/vim-airline-themes'
-  let g:airline_theme = 'light'
+  let g:airline_theme = 'zenburn'
 
 Plug 'junegunn/fzf'
 
@@ -39,8 +39,12 @@ Plug 'fatih/vim-go'
 
 Plug 'mzlogin/vim-markdown-toc'
 
+Plug 'sheerun/vim-polyglot'
+
 Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 1
+
+Plug 'junegunn/seoul256.vim'
 
 Plug 'lervag/vimtex'
   let g:vimtex_view_method = 'skim'
@@ -50,22 +54,21 @@ call plug#end()
 
 " --- Appearance ---
 
-syntax on    " Syntax highlighting
-set showcmd  " Show partial commands as they're typed
+set number relativenumber
+set showcmd " Show partial commands as they're typed
 set wildmenu wildmode=longest:full,full " Show a visual tab completion list
 
-" Line numbers
-set number relativenumber
-hi CursorLineNr ctermfg=Grey     guifg=Grey
-hi LineNr       ctermfg=DarkGrey guifg=DarkGrey
-
-" Window split
-hi VertSplit    cterm=NONE
-hi VertSplit    ctermfg=Grey     guifg=Grey
-
-" Search result highlighting
+" Enable colours/highlighting
+syntax on
+set cursorline
 set hlsearch
-hi Search ctermbg=LightYellow guibg=LightYellow
+
+" Colour scheme
+set notermguicolors " Force 8-bit colour (Terminal.app doesn't support 24-bit)
+colorscheme seoul256
+hi normal     ctermbg=none " Remove the colorscheme background colours. Note
+hi linenr     ctermbg=none " that we don't care about guibg because we're in
+hi signcolumn ctermbg=none " 8-bit mode.
 
 " Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
@@ -82,6 +85,7 @@ filetype indent plugin on      " Enable filetype-specific indents and plugins
 set backspace=indent,eol,start " Usually automatic, must set for some systems
 set hidden                     " Disable warning when hiding modified buffers
 set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
+set re=0                       " Quicker regex engine for syntax highlighting
 set splitbelow splitright      " Always place new window below / to the right
 
 " Indentation
