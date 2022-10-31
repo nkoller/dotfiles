@@ -1,51 +1,6 @@
 set nocompatible " For consistency when used as system-wide vimrc or with -u
 
 
-" --- Appearance ---
-
-syntax on    " Syntax highlighting
-set showcmd  " Show partial commands as they're typed
-set wildmenu wildmode=longest:full,full " Show a visual tab completion list
-
-" Line numbers
-set number relativenumber
-hi CursorLineNr ctermfg=Grey     guifg=Grey
-hi LineNr       ctermfg=DarkGrey guifg=DarkGrey
-
-" Window split
-hi VertSplit    cterm=NONE
-hi VertSplit    ctermfg=Grey     guifg=Grey
-
-" Search result highlighting
-set hlsearch
-hi Search ctermbg=LightYellow guibg=LightYellow
-
-" Netrw appearance
-let g:netrw_banner       = 0  " Remove banner
-let g:netrw_browse_split = 4  " Open selection in previous window
-let g:netrw_bufsettings  = 'noma nomod nu nobl nowrap ro' " Show line numbers
-let g:netrw_liststyle    = 3  " Tree view by default
-let g:netrw_list_hide    = '.*\.swp$'
-let g:netrw_winsize      = 25 " 25% width
-
-
-" --- Behaviour ---
-
-filetype indent plugin on      " Enable filetype-specific indents and plugins
-set backspace=indent,eol,start " Usually automatic, must set for some systems
-set hidden                     " Disable warning when hiding modified buffers
-set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
-set splitbelow splitright      " Always place new window below / to the right
-
-" Indentation
-set autoindent " For unknown filetypes, just copy indentation from prev. line
-set expandtab  " Tab key inserts spaces by default
-set shiftwidth=4 tabstop=4 " Tabs appear 4 spaces long
-
-" Markdown
-autocmd Filetype markdown setlocal textwidth=80 " Automatic line breaks at 80
-
-
 " --- Plugins ---
 
 " Install vim-plug if it's not there
@@ -91,6 +46,51 @@ Plug 'lervag/vimtex'
   let g:vimtex_view_method = 'skim'
 
 call plug#end()
+
+
+" --- Appearance ---
+
+syntax on    " Syntax highlighting
+set showcmd  " Show partial commands as they're typed
+set wildmenu wildmode=longest:full,full " Show a visual tab completion list
+
+" Line numbers
+set number relativenumber
+hi CursorLineNr ctermfg=Grey     guifg=Grey
+hi LineNr       ctermfg=DarkGrey guifg=DarkGrey
+
+" Window split
+hi VertSplit    cterm=NONE
+hi VertSplit    ctermfg=Grey     guifg=Grey
+
+" Search result highlighting
+set hlsearch
+hi Search ctermbg=LightYellow guibg=LightYellow
+
+" Netrw appearance
+let g:netrw_banner       = 0  " Remove banner
+let g:netrw_browse_split = 4  " Open selection in previous window
+let g:netrw_bufsettings  = 'noma nomod nu nobl nowrap ro' " Show line numbers
+let g:netrw_liststyle    = 3  " Tree view by default
+let g:netrw_list_hide    = '.*\.swp$'
+let g:netrw_winsize      = 25 " 25% width
+
+
+" --- Behaviour ---
+
+filetype indent plugin on      " Enable filetype-specific indents and plugins
+set backspace=indent,eol,start " Usually automatic, must set for some systems
+set hidden                     " Disable warning when hiding modified buffers
+set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
+set splitbelow splitright      " Always place new window below / to the right
+
+" Indentation
+set autoindent " For unknown filetypes, just copy indentation from prev. line
+set expandtab  " Tab key inserts spaces by default
+set shiftwidth=4 tabstop=4 " Tabs appear 4 spaces long
+
+" Markdown
+autocmd Filetype markdown setlocal textwidth=80 " Automatic line breaks at 80
 
 
 " --- Mappings ---
