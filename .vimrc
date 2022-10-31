@@ -64,8 +64,8 @@ set cursorline
 set hlsearch
 
 " Colour scheme
-set notermguicolors " Force 8-bit colour (Terminal.app doesn't support 24-bit)
-colorscheme seoul256
+set notermguicolors  " Use 8-bit colour (Terminal.app doesn't support 24-bit)
+colorscheme seoul256 " This is a nice 8-bit colour scheme
 hi normal     ctermbg=none " Remove the colorscheme background colours. Note
 hi linenr     ctermbg=none " that we don't care about guibg because we're in
 hi signcolumn ctermbg=none " 8-bit mode.
