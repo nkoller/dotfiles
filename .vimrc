@@ -1,6 +1,11 @@
 set nocompatible " For consistency when used as system-wide vimrc or with -u
 
 
+" --- Constants --- 
+
+let dark_grey = 235 " Xterm Grey15 (#262626)
+
+
 " --- Plugins ---
 
 " Install vim-plug if it's not there
@@ -37,6 +42,10 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'fatih/vim-go'
 
+Plug 'Yggdroot/indentLine'
+  let g:indentLine_char = '¦'
+  let g:indentLine_color_term = dark_grey
+
 Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'sheerun/vim-polyglot'
@@ -54,7 +63,6 @@ call plug#end()
 
 " --- Appearance ---
 
-set number relativenumber
 set showcmd " Show partial commands as they're typed
 set wildmenu wildmode=longest:full,full " Show a visual tab completion list
 
@@ -70,10 +78,13 @@ hi normal     ctermbg=none " Remove the colorscheme background colours. Note
 hi linenr     ctermbg=none " that we don't care about guibg because we're in
 hi signcolumn ctermbg=none " 8-bit mode.
 
+" Line numbers
+set number relativenumber
+execute 'hi linenr ctermfg='.dark_grey
+
 " Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
 let g:netrw_browse_split = 4  " Open selection in previous window
-let g:netrw_bufsettings  = 'noma nomod nu nobl nowrap ro' " Show line numbers
 let g:netrw_liststyle    = 3  " Tree view by default
 let g:netrw_list_hide    = '.*\.swp$'
 let g:netrw_winsize      = 25 " 25% width
@@ -84,9 +95,9 @@ let g:netrw_winsize      = 25 " 25% width
 filetype indent plugin on      " Enable filetype-specific indents and plugins
 set backspace=indent,eol,start " Usually automatic, must set for some systems
 set hidden                     " Disable warning when hiding modified buffers
-set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
 set re=0                       " Quicker regex engine for syntax highlighting
 set splitbelow splitright      " Always place new window below / to the right
+set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
 
 " Indentation
 set autoindent " For unknown filetypes, just copy indentation from prev. line
