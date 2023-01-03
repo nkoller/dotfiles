@@ -68,9 +68,25 @@ _fzf_compgen_path() {
 
 # git shortcuts
 
+alias ga='git add'
+alias gb='git branch'
+alias gbd='git branch -D'
+alias gc='git commit -m'
+alias gcb='git checkout -B'
+alias gcm='git checkout master'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gf='git fetch'
+alias gs='git status'
+
 gmm() {
     git checkout master
     git pull
     git checkout -
     git merge master
 }
+
+
+# Path
+
+export PATH="/opt/homebrew/bin:$PATH"
