@@ -77,6 +77,7 @@ alias gcm='git checkout master'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gf='git fetch'
+alias gp='git pull'
 alias gs='git status'
 
 gmm() {
