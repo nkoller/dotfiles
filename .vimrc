@@ -1,7 +1,7 @@
 set nocompatible " For consistency when used as system-wide vimrc or with -u
 
 
-" --- Constants --- 
+" --- Constants ---
 
 let dark_grey = 235 " Xterm Grey15 (#262626)
 
@@ -32,13 +32,30 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   let g:airline_theme = 'zenburn'
 
+Plug 'dense-analysis/ale'
+  let g:ale_completion_enabled = 1
+  let g:ale_echo_msg_format = '[%linter%] %severity%: %s'
+  let g:ale_fix_on_save = 1
+  let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'javascript': ['eslint'],
+  \ 'javascriptreact': ['eslint'],
+  \ 'typescript': ['eslint'],
+  \ 'typescriptreact': ['eslint'],
+  \ 'vim': [],
+  \}
+  let g:ale_sign_error = '●'
+  let g:ale_sign_warning = '●'
+  set omnifunc=ale#completion#OmniFunc
+
 Plug 'junegunn/fzf'
 
 Plug 'junegunn/fzf.vim'
   let g:fzf_action = {
-    \ 'ctrl-n': 'split',
-    \ 'ctrl-l': 'vsplit',
-    \ 'ctrl-t': 'tab split' }
+  \ 'ctrl-n': 'split',
+  \ 'ctrl-l': 'vsplit',
+  \ 'ctrl-t': 'tab split',
+  \}
 
 Plug 'fatih/vim-go'
 
@@ -77,10 +94,12 @@ colorscheme seoul256 " This is a nice 8-bit colour scheme
 hi normal     ctermbg=none " Remove the colorscheme background colours. Note
 hi linenr     ctermbg=none " that we don't care about guibg because we're in
 hi signcolumn ctermbg=none " 8-bit mode.
+hi aleerrorsign   ctermbg=none
+hi alewarningsign ctermbg=none
 
 " Line numbers
 set number relativenumber
-execute 'hi linenr ctermfg='.dark_grey
+execute 'hi linenr ctermfg=' . dark_grey
 
 " Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
@@ -102,7 +121,7 @@ set notimeout ttimeout ttimeoutlen=200 " No timeout on maps, only on keycodes
 " Indentation
 set autoindent " For unknown filetypes, just copy indentation from prev. line
 set expandtab  " Tab key inserts spaces by default
-set shiftwidth=4 tabstop=4 " Tabs appear 4 spaces long
+set shiftwidth=2 tabstop=2 " Tabs appear 2 spaces long
 
 " Markdown
 autocmd Filetype markdown setlocal textwidth=80 " Automatic line breaks at 80
@@ -110,8 +129,7 @@ autocmd Filetype markdown setlocal textwidth=80 " Automatic line breaks at 80
 
 " --- Mappings ---
 
-nmap <space> <nop>
-let mapleader = "\<Space>"
+let mapleader = "\<space>"
 
 " Window movement
 nmap <leader>h <c-w>h
@@ -143,7 +161,7 @@ nmap <leader>\ <c-w>=
 " Tab movement
 nmap <leader>` gt
 for i in range(1, 9)
-  execute "nmap <leader>" . i . " " . i . "gt"
+  execute 'nmap <leader>' . i . ' ' . i . 'gt'
 endfor
 nmap <leader>0 :tabl<cr>
 
@@ -181,19 +199,35 @@ nmap <silent> <leader>!W :bw!<cr>
 nmap <silent> <leader>!q :bp<bar>sp<bar>bn<bar>bw!<cr>
 nmap <silent> <leader>!x :qa!<cr>
 
-" Misc shortcuts
-nmap <leader>a :Ack 
+" Misc command shortcuts
 nmap <leader>c :source $MYVIMRC<cr>
-nmap <silent> <leader>d :GoDef<cr>
-nmap <silent> <leader>/ :BLines<cr>
-nmap <silent> <leader>~ :Tlist<cr>
 nmap <silent> <leader><leader> :Vexplore<cr>
 
-" Make Y behave like C and D
-map Y y$
+" ALE shortcuts
+nmap <silent> <c-n> :ALENextWrap<cr>
+nmap <silent> <c-p> :ALEPreviousWrap<cr>
+nmap <silent> fd :ALEGoToDefinition<cr>
+nmap <silent> <leader>dd :ALEGoToDefinition<cr>
+nmap <silent> <leader>dj :ALEGoToDefinition -split<cr>
+nmap <silent> <leader>dl :ALEGoToDefinition -vsplit<cr>
+nmap <silent> <leader>dt :ALEGoToDefinition -tab<cr>
+nmap <silent> <leader>R :ALEFindReferences<cr>
+nmap <leader>g :ALERename<cr>
+nmap <leader>G :ALEFileRename<cr>
+
+" Other plugin shortcuts
+nmap <leader>a :Ack 
+nmap <silent> <leader>/ :BLines<cr>
+
+" In insert mode, make tab trigger omnicompletion and also cycle through options
+imap <expr> <tab> pumvisible() ? '<c-n>' : '<c-x><c-o>'
+
+" Make V and Y behave like C and D
+nmap V v$
+nmap Y y$
 
 " Remove search highlights on screen redraw
-nnoremap <silent> <c-L> <c-L>:nohl<cr>
+nnoremap <silent> <c-l> <c-l>:nohl<cr>
 
 
 " --- Filetype-specific mappings ---
