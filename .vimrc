@@ -59,6 +59,8 @@ let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
 set omnifunc=ale#completion#OmniFunc
 
+Plug 'github/copilot.vim'
+
 Plug 'junegunn/fzf'
 
 Plug 'junegunn/fzf.vim'
