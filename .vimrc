@@ -25,62 +25,62 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'mileszs/ack.vim'
-  " Use silver searcher (if it's installed) instead of ack
-  if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-  endif
+" Use silver searcher (if it's installed) instead of ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 Plug 'vim-airline/vim-airline'
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#formatter = 'unique_tail'
-  let g:airline_section_y = ''       " Disable file encoding section
-  let g:airline_section_warning = '' " Disable warnings section
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_section_y = ''       " Disable file encoding section
+let g:airline_section_warning = '' " Disable warnings section
 
 Plug 'vim-airline/vim-airline-themes'
-  let g:airline_theme = 'zenburn'
+let g:airline_theme = 'zenburn'
 
 Plug 'dense-analysis/ale'
-  let g:ale_completion_enabled = 1
-  let g:ale_echo_msg_format = '[%linter%] %severity%: %s'
-  let g:ale_fix_on_save = 1
-  let g:ale_fixers = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'javascript': ['eslint'],
-  \ 'javascriptreact': ['eslint'],
-  \ 'typescript': ['eslint'],
-  \ 'typescriptreact': ['eslint'],
-  \ 'vim': [],
-  \}
-  let g:ale_sign_error = '●'
-  let g:ale_sign_warning = '●'
-  set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_format = '[%linter%] %severity%: %s'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'javascript': ['eslint'],
+\ 'javascriptreact': ['eslint'],
+\ 'typescript': ['eslint'],
+\ 'typescriptreact': ['eslint'],
+\ 'vim': [],
+\}
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '●'
+set omnifunc=ale#completion#OmniFunc
 
 Plug 'junegunn/fzf'
 
 Plug 'junegunn/fzf.vim'
-  let g:fzf_action = {
-  \ 'ctrl-n': 'split',
-  \ 'ctrl-l': 'vsplit',
-  \ 'ctrl-t': 'tab split',
-  \}
+let g:fzf_action = {
+\ 'ctrl-n': 'split',
+\ 'ctrl-l': 'vsplit',
+\ 'ctrl-t': 'tab split',
+\}
 
 Plug 'fatih/vim-go'
 
 Plug 'Yggdroot/indentLine'
-  let g:indentLine_char = '¦'
-  let g:indentLine_color_term = s:soft_grey
+let g:indentLine_char = '¦'
+let g:indentLine_color_term = s:soft_grey
 
 Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'sheerun/vim-polyglot'
 
 Plug 'frazrepo/vim-rainbow'
-  let g:rainbow_active = 1
+let g:rainbow_active = 1
 
 Plug 'junegunn/seoul256.vim'
 
 Plug 'lervag/vimtex'
-  let g:vimtex_view_method = 'skim'
+let g:vimtex_view_method = 'skim'
 
 call plug#end()
 
