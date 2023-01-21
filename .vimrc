@@ -1,9 +1,16 @@
 set nocompatible " For consistency when used as system-wide vimrc or with -u
 
 
-" --- Constants ---
+" --- Script constants ---
 
-let dark_grey = 235 " Xterm Grey15 (#262626)
+let s:is_macos_light_theme =
+  \ system('defaults read -g AppleInterfaceStyle 2>&1') =~ 'does not exist'
+
+if s:is_macos_light_theme
+  let s:soft_grey = 249 " Xterm Grey70 (#b2b2b2)
+else
+  let s:soft_grey = 235 " Xterm Grey15 (#262626)
+endif
 
 
 " --- Plugins ---
@@ -61,7 +68,7 @@ Plug 'fatih/vim-go'
 
 Plug 'Yggdroot/indentLine'
   let g:indentLine_char = '¦'
-  let g:indentLine_color_term = dark_grey
+  let g:indentLine_color_term = s:soft_grey
 
 Plug 'mzlogin/vim-markdown-toc'
 
@@ -91,6 +98,9 @@ set hlsearch
 " Colour scheme
 set notermguicolors  " Use 8-bit colour (Terminal.app doesn't support 24-bit)
 colorscheme seoul256 " This is a nice 8-bit colour scheme
+if s:is_macos_light_theme
+  set background=light
+endif
 hi normal     ctermbg=none " Remove the colorscheme background colours. Note
 hi linenr     ctermbg=none " that we don't care about guibg because we're in
 hi signcolumn ctermbg=none " 8-bit mode.
@@ -99,7 +109,7 @@ hi alewarningsign ctermbg=none
 
 " Line numbers
 set number relativenumber
-execute 'hi linenr ctermfg=' . dark_grey
+execute 'hi linenr ctermfg='.s:soft_grey
 
 " Netrw appearance
 let g:netrw_banner       = 0  " Remove banner
@@ -161,7 +171,7 @@ nmap <leader>\ <c-w>=
 " Tab movement
 nmap <leader>` gt
 for i in range(1, 9)
-  execute 'nmap <leader>' . i . ' ' . i . 'gt'
+  execute 'nmap <leader>'.i.' '.i.'gt'
 endfor
 nmap <leader>0 :tabl<cr>
 
