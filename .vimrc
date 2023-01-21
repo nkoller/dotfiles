@@ -37,7 +37,11 @@ let g:airline_section_y = ''       " Disable file encoding section
 let g:airline_section_warning = '' " Disable warnings section
 
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'zenburn'
+if s:is_macos_light_theme
+  let g:airline_theme = 'google_light'
+else
+  let g:airline_theme = 'zenburn'
+endif
 
 Plug 'dense-analysis/ale'
 let g:ale_completion_enabled = 1
