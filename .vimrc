@@ -74,7 +74,7 @@ Plug 'fatih/vim-go'
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
-let g:indentLine_color_term = s:soft_grey
+let g:indentLine_defaultGroup = 'linenr' " Use the same colour as line numbers
 
 Plug 'mzlogin/vim-markdown-toc'
 
