@@ -51,6 +51,7 @@ let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['eslint'],
 \ 'javascriptreact': ['eslint'],
+\ 'json': ['prettier'],
 \ 'typescript': ['eslint'],
 \ 'typescriptreact': ['eslint'],
 \ 'vim': [],
