@@ -9,7 +9,7 @@ let s:is_macos_light_theme =
 if s:is_macos_light_theme
   let s:soft_grey = 249 " Xterm Grey70 (#b2b2b2)
 else
-  let s:soft_grey = 235 " Xterm Grey15 (#262626)
+  let s:soft_grey = 241 " Xterm Grey39 (#626262)
 endif
 
 
@@ -49,11 +49,12 @@ let g:ale_echo_msg_format = '[%linter%] %severity%: %s'
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'javascript': ['eslint'],
-\ 'javascriptreact': ['eslint'],
+\ 'javascript': ['eslint', 'prettier'],
+\ 'javascriptreact': ['eslint', 'prettier'],
 \ 'json': ['prettier'],
-\ 'typescript': ['eslint'],
-\ 'typescriptreact': ['eslint'],
+\ 'python': ['black'],
+\ 'typescript': ['eslint', 'prettier'],
+\ 'typescriptreact': ['eslint', 'prettier'],
 \ 'vim': [],
 \}
 let g:ale_sign_error = '●'
@@ -78,6 +79,8 @@ let g:indentLine_char = '¦'
 let g:indentLine_defaultGroup = 'linenr' " Use the same colour as line numbers
 
 Plug 'mzlogin/vim-markdown-toc'
+
+Plug 'andymass/vim-matchup'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -234,6 +237,7 @@ nmap <leader>G :ALEFileRename<cr>
 
 " Other plugin shortcuts
 nmap <leader>a :Ack 
+nmap <silent> <leader>m :MatchupWhereAmI<cr>
 nmap <silent> <leader>/ :BLines<cr>
 
 " In insert mode, make tab trigger omnicompletion and also cycle through options
