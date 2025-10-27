@@ -1,3 +1,3 @@
 # dotfiles
 
-I don't use emacs anymore so I wouldn't trust that one
+I don't use emacs so I wouldn't trust that one
