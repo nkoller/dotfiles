@@ -94,6 +94,16 @@ let g:vimtex_view_method = 'skim'
 
 call plug#end()
 
+let s:tsgo_linter = {
+\ 'name': 'tsgo',
+\ 'lsp': 'stdio',
+\ 'executable': {b -> ale#path#FindNearestExecutable(b, ['node_modules/@typescript/native/bin/tsc'])},
+\ 'command': '%e --lsp -stdio',
+\ 'project_root': function('ale#handlers#tsserver#GetProjectRoot'),
+\}
+call ale#linter#Define('typescript', s:tsgo_linter)
+call ale#linter#Define('typescriptreact', s:tsgo_linter)
+
 
 " --- Appearance ---
 
