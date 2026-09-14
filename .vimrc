@@ -99,6 +99,7 @@ let s:tsgo_linter = {
 \ 'lsp': 'stdio',
 \ 'executable': {b -> ale#path#FindNearestExecutable(b, ['node_modules/@typescript/native/bin/tsc'])},
 \ 'command': '%e --lsp -stdio',
+\ 'language': {b -> getbufvar(b, '&filetype')},
 \ 'project_root': function('ale#handlers#tsserver#GetProjectRoot'),
 \}
 call ale#linter#Define('typescript', s:tsgo_linter)
