@@ -57,6 +57,10 @@ let g:ale_fixers = {
 \ 'typescriptreact': ['eslint', 'prettier'],
 \ 'vim': [],
 \}
+let g:ale_linters = {
+\ 'typescript': ['tsgo', 'eslint'],
+\ 'typescriptreact': ['tsgo', 'eslint'],
+\}
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
 set omnifunc=ale#completion#OmniFunc
